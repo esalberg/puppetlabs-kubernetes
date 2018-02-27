@@ -7,6 +7,7 @@ class kubernetes::packages (
   String $docker_package_name                  = $kubernetes::docker_package_name,
   String $docker_package_version               = $kubernetes::docker_package_version,
   Boolean $package_pin                         = $kubernetes::package_pin,
+  Boolean $manage_package_docker               = $kubernetes::manage_package_docker,
   String $cni_package_name                     = $kubernetes::cni_package_name,
   String $cni_version                          = $kubernetes::cni_version,
 ) {
@@ -49,8 +50,10 @@ class kubernetes::packages (
       }
     }
 
-    package { $docker_package_name:
-      ensure => $docker_package_version,
+    if $manage_package_docker {
+      package { $docker_package_name:
+        ensure => $docker_package_version,
+      }
     }
 
     package { $cni_package_name:

@@ -22,6 +22,7 @@ $kube_proxy_version = $kubernetes_version
 $container_runtime = 'docker'
 $docker_package_name = 'docker-engine'
 $package_pin = true
+$manage_package_docker = true
 $cni_package_name = 'kubernetes-cni'
 $kubernetes_fqdn = 'kubernetes'
 $controller = false
@@ -74,5 +75,7 @@ $node_label = $::hostname
 $cluster_service_cidr = undef
 $kube_api_service_ip = undef
 $kube_dns_ip = undef
-
+$manage_service_docker = true
+$manage_repo_docker = true
+$manage_repo_kubernetes = true
 }

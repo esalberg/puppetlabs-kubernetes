@@ -34,6 +34,10 @@
 #   Works only for Debian/Ubuntu.
 #   Defaults to `true`.
 #
+# [*manage_package_docker*]
+#   If you would like to manage the Docker package from this module.
+#   Defaults to `true`.
+#
 # [*cni_package_name*]
 #   The name of the cni package you would like to install.
 #   Defaults to `kubernetes-cni`.
@@ -251,6 +255,17 @@
 #   The version of kube-proxy you would like to install
 #   Defaults to $kubernetes_version
 #
+# [*manage_service_docker*]
+#   This is a boolean that specifies whether to manage the Docker service resource.
+#   Defaults to true
+#
+# [*manage_repo_docker*]
+#   This is a boolean that specifies whether to manage the Docker repo.
+#   Defaults to true
+#
+# [*manage_repo_kubernetes*]
+#   This is a boolean that specifies whether to manage the Kubernetes repo.
+#   Defaults to true
 #
 # Authors
 # -------
@@ -267,6 +282,7 @@ class kubernetes (
   Optional[String] $docker_package_name                            = $kubernetes::params::docker_package_name,
   Optional[String] $docker_package_version                         = $kubernetes::params::docker_package_version,
   Optional[Boolean] $package_pin                                   = $kubernetes::params::package_pin,
+  Optional[Boolean] $manage_package_docker                         = $kubernetes::params::manage_package_docker,
   Optional[String] $cni_package_name                               = $kubernetes::params::cni_package_name,
   Optional[String] $cni_version                                    = $kubernetes::params::cni_version,
   Optional[String] $cni_cluster_cidr                               = $kubernetes::params::cni_cluster_cidr,
@@ -321,7 +337,9 @@ class kubernetes (
   String $kube_dns_ip                                              = $kubernetes::params::kube_dns_ip,
   String $kube_api_service_ip                                      = $kubernetes::params::kube_api_service_ip,
   String $kube_proxy_version                                       = $kubernetes::params::kube_proxy_version,
-
+  Boolean $manage_service_docker                                   = $kubernetes::params::manage_service_docker,
+  Boolean $manage_repo_docker                                      = $kubernetes::params::manage_repo_docker,
+  Boolean $manage_repo_kubernetes                                  = $kubernetes::params::manage_repo_kubernetes,
   )  inherits kubernetes::params {
 
   if $controller {

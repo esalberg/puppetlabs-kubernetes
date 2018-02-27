@@ -162,6 +162,12 @@ If you would like to pin versions of Docker and Kubernetes packages. Works only 
 
 Defaults to `true`.
 
+#### `manage_package_docker`
+
+If you would like to manage the Docker package with this module.
+
+Defaults to `true`.
+
 #### `cni_package_name`
 
 The name of the cni package you would like to install.
@@ -505,6 +511,24 @@ Defaults to `undef`
 The cluster service IP to use for the kube api.
 
 Defaults to `undef`
+
+#### `manage_service_docker`
+
+If you would like to manage the Docker service with this module.
+
+Defaults to `true`.
+
+#### `manage_repo_docker`
+
+If you would like to manage the Docker repo with this module.
+
+Defaults to `true`.
+
+#### `manage_repo_kubernetes`
+
+If you would like to manage the Kubernetes repo with this module.
+
+Defaults to `true`.
 
 ## Limitations
 
