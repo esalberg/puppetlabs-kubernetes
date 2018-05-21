@@ -19,6 +19,10 @@
 #   It can only be set to `cri_containerd` or `docker`.
 #   Defaults to `docker`.
 #
+# [*docker_repo_name*]
+#   The name of the docker repo.
+#   Defaults to `docker`.
+#
 # [*docker_package_name*]
 #   The name of the docker package you would like to install.
 #   Defaults to `docker-engine`.
@@ -264,6 +268,7 @@ class kubernetes (
   Optional[String] $kubernetes_package_version                     = $kubernetes::params::kubernetes_package_version,
   String $kubernetes_fqdn                                          = $kubernetes::params::kubernetes_fqdn,
   String $container_runtime                                        = $kubernetes::params::container_runtime,
+  Optional[String] $docker_repo_name                               = $kubernetes::params::docker_repo_name,
   Optional[String] $docker_package_name                            = $kubernetes::params::docker_package_name,
   Optional[String] $docker_package_version                         = $kubernetes::params::docker_package_version,
   Optional[Boolean] $package_pin                                   = $kubernetes::params::package_pin,

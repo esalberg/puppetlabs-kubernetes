@@ -20,6 +20,7 @@ case $::osfamily {
 $kube_dns_version = '1.14.2'
 $kube_proxy_version = $kubernetes_version
 $container_runtime = 'docker'
+$docker_repo_name = 'docker'
 $docker_package_name = 'docker-engine'
 $package_pin = true
 $cni_package_name = 'kubernetes-cni'

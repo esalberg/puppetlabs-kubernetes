@@ -142,6 +142,12 @@ The version the Kubernetes OS packages to install, such as kubectl and kubelet.
 
 Defaults to `1.9.2`.
 
+#### `docker_repo_name`
+
+Name for the docker repo.
+
+Defaults to `docker`.
+
 #### `docker_package_name`
 
 The name of the docker package you would like to install.
